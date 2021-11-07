@@ -1,3 +1,10 @@
 svg{
     background-color: silver;
 }
+p{
+    background-color: cadetblue;
+    padding: 5px;
+    display: inline;
+    visibility: hidden;
+    position: absolute;
+}

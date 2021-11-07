@@ -24,10 +24,23 @@ document.addEventListener('DOMContentLoaded',()=>{
                         .attr('width',w)
                         .attr('height',h);
 
+        const tooltip = d3.select('main')
+                        .append('p')
+                        .attr('id','tooltip')
+
         chart.selectAll('circle')
         .data(dataset)
         .enter()
         .append('circle')
+        .on('mouseover',(d)=>{
+            tooltip.attr('data-year',d.target.__data__.Year);
+            tooltip.text(d.target.__data__.Year);
+            tooltip.style('visibility','visible');
+            tooltip.style("top", (d.pageY-45)+"px").style("left",(d.pageX+10)+"px");
+        })
+        .on('mouseout',()=>{
+            tooltip.style('visibility','hidden')
+        })
         .attr('class','dot')
         .attr('data-xvalue',(d)=>d.Year)
         .attr('data-yvalue',(d)=>{
@@ -36,7 +49,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         })
         .attr('cx',(d)=>xScale(d.Year))
         .attr('cy',(d)=>yScale(d.Seconds*1000))
-        .attr('r',5)
+        .attr('r',8)
         
         
         const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('Y'));

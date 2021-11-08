@@ -25,13 +25,16 @@ document.addEventListener('DOMContentLoaded',()=>{
                         .attr('height',h);
 
         const tooltip = d3.select('main')
-                        .append('p')
+                        .append('span')
                         .attr('id','tooltip')
 
         chart.selectAll('circle')
         .data(dataset)
         .enter()
         .append('circle')
+        .style('fill',(d)=>{
+            return d.Doping?'rgb(19, 92, 134':'rgb(141, 61, 85)'
+        })
         .on('mouseover',(d)=>{
             tooltip.attr('data-year',d.target.__data__.Year);
             tooltip.text(d.target.__data__.Year);
@@ -64,7 +67,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             .attr('transform',`translate(${padding},0)`)
             .call(yAxis);
 
-        chart.append('g').attr('id','legend').text('legend')
+        
         }
         
 });

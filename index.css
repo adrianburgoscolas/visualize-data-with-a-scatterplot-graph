@@ -1,10 +1,46 @@
-svg{
-    background-color: silver;
+body{
+    text-align: center;
+    font-family: sans-serif;
+    min-width: 820px;
 }
-p{
-    background-color: cadetblue;
+main{
+    border-radius: 30px;
+    overflow: hidden;
+    width: 800px;
+    height: 570px;
+    padding: 0;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.24);
+}
+main p{
+    background-color: rgb(71, 141, 182);
+    height: 70px;
+    width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#tooltip{
+    background-color: rgb(71, 141, 182);
     padding: 5px;
     display: inline;
     visibility: hidden;
     position: absolute;
+    transition: all 0.2s;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+.info span{
+    background-color: rgb(19, 92, 134);
+}
+.no-info span{
+    background-color: rgb(141, 61, 85);
+}
+.no-info span,.info span{
+    color: whitesmoke;
+    padding: 3px;
+    border-radius: 10px;
+}
+li{
+    margin: 8px;
 }
